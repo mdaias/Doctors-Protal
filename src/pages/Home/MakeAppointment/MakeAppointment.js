@@ -5,7 +5,7 @@ import bgAppointment from '../../../assets/images/appointment.png'
 
 const MakeAppointment = () => {
     return (
-        <div className='my-10 md:my-52 mx-5 md:mx-12 flex md:flex-row flex-col justify-center items-center p-2' style={{background:`url(${bgAppointment})`}}>
+        <div className='my-10 md:mt-52 md:mb-24 mx-5 md:mx-12 flex md:flex-row flex-col justify-center items-center p-2' style={{background:`url(${bgAppointment})`}}>
             <div className="thumbnail flex-1 hidden md:block">
                 <img className='md:-mt-52' src={doctor} alt="" />
             </div>
