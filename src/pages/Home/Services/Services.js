@@ -22,7 +22,7 @@ const Services = () => {
             <div className='flex md:flex-row flex-col justify-center gap-5 md:gap-10'>
                 {
                     services.map(service=><Service 
-                    key={service.id}
+                    key={service._id}
                     service={service
                     }></Service>)
                 }

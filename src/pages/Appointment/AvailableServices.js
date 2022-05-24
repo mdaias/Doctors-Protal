@@ -25,6 +25,7 @@ const AvailableServices = ({date}) => {
             </div>
             {
                 treatment && <BookingModel
+                key={treatment._id}
                 treatment={treatment}
                 date={date}
                 setTreatment={setTreatment}
