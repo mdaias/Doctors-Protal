@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import login from '../../../assets/login/login.jpg'
 import auth from '../../../firebase.init';
@@ -16,6 +16,15 @@ const LogIn = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     let signInError;
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
+    useEffect( () =>{
+        if (user || gUser) {
+            navigate(from, { replace: true });
+        }
+    }, [user, gUser, from, navigate])
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
@@ -104,7 +113,7 @@ const LogIn = () => {
                                 <input type="submit" value="LogIn" className='btn btn-secondary mt-3 btn-wide text-white' />
 
                             </form>
-                            <p className='md:text-lg font-semibold'><small>New to Doctors Portal? <Link className='text-primary' to="/signup">Create New Account</Link></small></p>
+                            <p className='md:text-lg font-semibold'><small>New to Doctors Portal? <Link className='text-primary' to="/registration">Create New Account</Link></small></p>
                         </div>
 
                         <div className="divider">OR</div>
